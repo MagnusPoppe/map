@@ -22,32 +22,18 @@ button {
         }
 
 #map {
-	position: fixed;
-	height: 100%; 
+	position: relative;
 	width:  100%;
+	height: 500px;
+	z-index: 0;
 }
 #search {
-	position: fixed;
-	z-index: 100;
-	right: 10px;
-	top: 10px;
-}
-#searchfield {
-	border: 1px solid grey;
-	border-radius: 4px 0px 0px 4px;
-	border-right: 0;
-	padding: 5px;
-	font-size: 0.8em;
-	margin: 0;
-}
-#btnsearch {
-	margin-left: 0;
-	border: 1px solid grey;
-	border-left: 0;
-	border-radius: 0px 4px 4px 0px;	
-	padding: 5px;
-	font-size: 0.8em;
-	margin: 0;
-	background: white;
+	position: relative;
+	z-index: 1;
+	top: 40px;
+	left: -10px
 }
 
+#search div input:first-child {
+	margin-right: 5px;
+}
