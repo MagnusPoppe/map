@@ -1,0 +1,53 @@
+/** map.css **/
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+button {
+            border: 2px solid black;
+            padding: 10px 15px 10px 15px;
+            background: none;
+            color: black;
+            display: inline-block;
+            margin: 10px;
+            border-radius: 3px;
+        }
+        button:hover {
+            border: 2px solid black;
+            padding: 10px 15px 10px 15px;
+            background: black;
+            color: white;
+            border-radius: 3px;
+        }
+
+#map {
+	position: fixed;
+	height: 100%; 
+	width:  100%;
+}
+#search {
+	position: fixed;
+	z-index: 100;
+	right: 10px;
+	top: 10px;
+}
+#searchfield {
+	border: 1px solid grey;
+	border-radius: 4px 0px 0px 4px;
+	border-right: 0;
+	padding: 5px;
+	font-size: 0.8em;
+	margin: 0;
+}
+#btnsearch {
+	margin-left: 0;
+	border: 1px solid grey;
+	border-left: 0;
+	border-radius: 0px 4px 4px 0px;	
+	padding: 5px;
+	font-size: 0.8em;
+	margin: 0;
+	background: white;
+}
+
