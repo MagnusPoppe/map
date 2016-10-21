@@ -23,28 +23,38 @@ function initializeMap( position )
 }
 
 // Finner din posisjon
-function getLocation() {
+function getLocation() 
+{
 	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(showPosition);
+		alert(navigator.geolocation.getCurrentPosition(showPosition) );
 	} else { 
 		alert("Geolocation is not supported by this browser.");
 	}
 }
 
-// Henter ut posisjonen. HVORDAN???
-function showPosition(position) {
-	return ("[" + position.coords.latitude + ", " + position.coords.longitude + "]");
+// Henter ut posisjonen. 
+function showPosition( position ) 
+{
+	var latitude = parseFloat(
+		JSON.stringify(
+			position.coords.latitude
+		)
+	);
+	var longitude = parseFloat(
+		JSON.stringify(
+			position.coords.longitude
+		)
+	);
+
+	console.log( latitude+", "+latitude );
+	return [latitude, latitude];
 }
 
 
 function placeHotspots( position ) 
 {
-	var circle = L.circle(position, {
-	    color: 'red',
-	    fillColor: '#f03',
-	    fillOpacity: 0.5,
-	    radius: 50
-	}).addTo(map);
+	// Plasser ut de forskjellige hotspots med
+	// denne funskjonen. @elisekrist
 }
 
 function lookUpAddress( address )
