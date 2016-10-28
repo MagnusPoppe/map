@@ -7,15 +7,15 @@
 	<title>Buber</title>
 
 	<!-- EKSTERNE RESSURSSER: -->
+	<script src="js/libs/jquery-3.1.1.min.js"></script>
 	<script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
 
 	<!-- INTERNE RESSURSSER -->
 	<script src="js/map.js"></script>
 	<link rel="stylesheet" type="text/css" href="map.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.css">
-	<head>
+</head>
 
 <body>
 
@@ -23,10 +23,10 @@
 	<div class="hero-body" id="map">
 	</div>
 </section>
-<form id="search" action="#" method="POST">
+<form action="#" method="post" id="search">
 	<div class="control is-grouped is-pulled-right">
-		<input class="input" type="text" cellpadding="0" cellspacing="0" placeholder="Søk etter adresse/sted" id="searchfield">
-		<input class="button" type="submit" id="btnsearch" onclick="lookUpAddress($('#searchfield').val())">
+		<input class="input" type="text" placeholder="Søk etter adresse/sted" id="searchfield">
+		<input class="button" type="submit" id="btnsearch">
 	</div>
 </form>
 
