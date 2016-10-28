@@ -3,7 +3,7 @@ var ZOOMLEVEL = 14;
 var map;
 
 // POSISJONER:
-var BØ_LATLONG 			= [59.41085, 9.07256];
+var BØ_LATLONG 			= [59.41170376354018, 9.0730682015419];
 var RINGERRIKE_LATLONG 	= [60.14, 10.25];
 
 
@@ -71,7 +71,7 @@ $(document).ready(function () {
 					);
 
 					map.panTo( [latitude, longitude] );
-					L.marker([latitude, longitude]).addTo(map);
+					L. 	([latitude, longitude]).addTo(map);
 				}
 			});
 		} else return false;
