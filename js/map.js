@@ -54,16 +54,16 @@ $(document).ready(function () {
 				dataType: "json",
 				success: function (data)
 				{
-					console.log(data);
 					var latitude = parseFloat(
 							data.adresser[0].nord
 					);
 					var longitude = parseFloat(
 							data.adresser[0].aust
 					);
-					console.log ([latitude, longitude]);
 					map.panTo( [latitude, longitude] );
-					L.marker([latitude, longitude]).addTo(map);
+					L.marker([latitude, longitude]).bindTooltip(sok, {permanent: true}).openTooltip().addTo(map);
+
+					$("#searchfield").val('');
 				}
 			});
 		}
@@ -71,14 +71,53 @@ $(document).ready(function () {
 });
 
 
-function lookUpAddress( kordinat )
+// Plaserer en markør ved gitt koordinat
+function finnAdresse( koordinat )
 {
-	return "adresse";
+	var nord = koordinat[0];
+	var aust = koordinat[1];
+	var url = 'http://ws.geonorge.no/AdresseWS/adresse/radius?nord=' + nord + '&aust=' + aust + '&radius=1';
+
+	$.ajax({
+		url: url,
+		dataType: "json",
+		success: function (data)
+		{
+			var adressenavn = (data.adresser[0].adressenavn);
+			var husNr = parseFloat(data.adresser[0].husnr);
+			var poststed = (data.adresser[0].poststed);
+
+			L.marker([nord, aust]).bindTooltip(adressenavn + " " + husNr + " " + poststed
+				, {permanent: true}).openTooltip().addTo(map);
+		}
+	});
 }
 
-function lookUpCoordinate( adresse ) {
-	return "koordinat";
+// Plaserer en markør ved gitt adresse
+function finnKoordinat( adresse ) {
+	var url = 'http://ws.geonorge.no/AdresseWS/adresse/sok?sokestreng='+adresse;
+
+	$.ajax({
+		url: url,
+		dataType: "json",
+		success: function (data)
+		{
+			var latitude = parseFloat(data.adresser[0].nord);
+			var longitude = parseFloat(data.adresser[0].aust);
+
+			var adressenavn = (data.adresser[0].adressenavn);
+			var husNr = parseFloat(data.adresser[0].husnr);
+			var poststed = (data.adresser[0].poststed);
+
+			var adresse = adressenavn + " " + husNr + " " + poststed;
+
+			L.marker([latitude, longitude]).bindTooltip(adresse, {permanent: true}).openTooltip().addTo(map);
+		}
+	});
 }
+
+finnKoordinat("Bø i Telemark");
+
 
 /** KOMMENTARER OG NOTATER PÅ BRUK AV KART.
 	For å endre typen kart hentet: 
