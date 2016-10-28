@@ -38,8 +38,12 @@ function setRoadLayer()
 	}).addTo(map);
 }
 
-function hey() {
-	console.log(getCheeseburgers( 59.41268, 9.06904 ));
+function setBusStops(latitude, longitude )
+{
+	var stops = getBusstops( latitude, longitude );
+
+	for(var i = 0; i < stops.length; i++)
+		placeIcon(AVAILABLE_HOTSPOT_ICON,  stops[i].latitude, stops[i].longitude );
 }
 
 function getBusstops( latitude, longitude )
@@ -58,7 +62,8 @@ function getBusstops( latitude, longitude )
 			"accessId": "hack4no2016",
 			"format": "json",
 			"originCoordLat": latitude,
-			"originCoordLong": longitude
+			"originCoordLong": longitude,
+			"maxNo"	: 50
 		},
 		success : function (e)
 		{
