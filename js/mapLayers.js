@@ -36,6 +36,34 @@ function setRoadLayer()
 	}).addTo(map);
 }
 
+function getDepartureTimes( bus_stop_id )
+{
+	var url = "http://apidev.reiseinfo.no/bin/rest.exe/v1.1/vs_restapi/departureBoard";
+	// ?format=json&authKey=api-test&time=16:50&id=762139955
+
+	var departures = new Array();
+	var time = new Date();
+
+	$.ajax({
+		url: url,
+		method: "get",
+		datatype: "json",
+		async: false,
+		data: {
+			"id" 		: bus_stop_id,
+			"format" 	: "json",
+			"authKey" 	: "api-test",
+			"time" 		: time.getHours() + ":" + time.getMinutes()
+		},
+		success : function (e)
+		{
+			departures = e.DepartureBoard.Departure;
+		}
+	});
+
+	return departures;
+}
+
 function setBusStops( pos )
 {
 	var stops = getBusstops( pos[0], pos[1] );
@@ -79,3 +107,23 @@ function getBusstops( latitude, longitude )
 
 // Setter ut bussholdeplasser der du befinner der
 
+
+
+// Finner og legger ikon på hotspots
+function placeHotspots( position ) 
+{
+
+	for(var i = 0; i < 500; i++)
+		placeIcon(AVAILABLE_HOTSPOT_ICON,  59.41379, 9.08344 );
+		placeIcon(AVAILABLE_HOTSPOT_ICON,  59.40251, 9.07118 );
+		placeIcon(AVAILABLE_HOTSPOT_ICON,  59.45236, 9.06837 );
+		placeIcon(AVAILABLE_HOTSPOT_ICON,  59.4445, 9.06331 );
+		placeIcon(AVAILABLE_HOTSPOT_ICON,  59.43936, 9.08228 );
+		placeIcon(AVAILABLE_HOTSPOT_ICON,  59.43681, 9.06845 );
+		placeIcon(ACTIVE_HOTSPOT_ICON,  59.41982, 9.07735 );
+		placeIcon(ACTIVE_HOTSPOT_ICON,  59.41513, 9.07677 );
+		placeIcon(ACTIVE_HOTSPOT_ICON,  59.4264, 9.0815 );
+		placeIcon(ACTIVE_HOTSPOT_ICON,  59.42344, 9.0626 );
+		placeIcon(ACTIVE_HOTSPOT_ICON,  59.41864, 9.0555 );
+
+}
