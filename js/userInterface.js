@@ -19,8 +19,6 @@ function addBusIcon(lat, lng){
 
         iconSize: [40, 40],
         iconAnchor: [20, 20],
-
-
     });
 
     L.marker([lat, lng], {icon: hotSpotIcon}).addTo(map)
