@@ -6,15 +6,15 @@
 #meny {
     z-index: 100;
     position: fixed;
-    bottom: -350px;
+    bottom: -250px;
     background-color: white;
-    height: 350px;
+    height: 250px;
     width: 100%;
     color: black;
 }
 
 #menyinnhold {
-    width: 70%;
+    width: 50%;
     margin: auto;
     margin-top: 30px;
 }
@@ -28,7 +28,7 @@
 }
 
 #menyinnhold .fra {
-    margin-top: 10px;
+    margin-top: -130px;
     margin-bottom: 10px;
 }
 
@@ -38,12 +38,12 @@
 
  .strek {
     width: 5px;
-    height: 190px;
+    height: 100px;
     background-color:#FF5722;
     z-index: 1000;
     position: relative;
-    margin-left: -40px;
-    margin-top: -30px;
+    margin-left: -30px;
+    margin-top: 10px;
 }
 
 #circle {
@@ -52,8 +52,8 @@
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
-  margin-left: -45px;
-  margin-top: -15px;
+  margin-left: -35px;
+  margin-top: 0px;
   background: #FF5722;
   position: relative;
 }
@@ -70,14 +70,37 @@
     color: #000;
     box-shadow: none;
     border-radius: 0;
+    margin-top: 90px;
 }
 
 .lukk {
     font-size: 30px;
     float: right;
-    margin-top: -290px;
+    margin-top: -215px;
 }
 
 .lukk:hover {
     cursor: pointer;
+}
+
+.fratid {
+    position: relative;
+    margin-top: -155px;
+    margin-left: -85px;
+}
+
+.tiltid {
+    position: relative;
+    margin-top: 90px;
+    margin-left: -85px;
+}
+
+#litenstrek {
+  width: 19px;
+  height: 5px;
+  margin-left: -37px;
+  margin-top: -123px;
+  background: #FF5722;
+  position: relative;
+  z-index: 9999;
 }
