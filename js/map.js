@@ -43,33 +43,51 @@ function placeHotspots( position )
 	// denne funskjonen. @elisekrist
 }
 
+$(document).ready(function () {
+	$("#search").on('submit', function (e) {
+		e.preventDefault();
+
+		var address = $('#searchfield').val();
+		var url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+address;
+
+		if (address != "") {
+			$.ajax({
+				url: url,
+				type: "POST",
+				data: new FormData(this),
+				contentType: false,
+				processData: false,
+				success: function (data)
+				{
+					var latitude = parseFloat(
+						JSON.stringify(
+							data.results[0].geometry.location.lat
+						)
+					);
+					var longitude = parseFloat(
+						JSON.stringify(
+							data.results[0].geometry.location.lng
+						)
+					);
+
+					map.panTo( [latitude, longitude] );
+					L.marker([latitude, longitude]).addTo(map);
+				}
+			});
+		} else return false;
+	});
+});
+
+
 function lookUpAddress( address )
 {
-	while (address.search(" ") != -1)
-	 	address = address.replace(" ", "+");
 
-	var url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+address;
-    $.ajax(
-    {
-        url: url,
-        dataType: "json",
-        success: function (data) 
-        {
-        	var latitude = parseFloat(
-        		JSON.stringify(
-        			data.results[0].geometry.location.lat
-    			)
-    		);
-			var longitude = parseFloat(
-				JSON.stringify(
-					data.results[0].geometry.location.lng
-				)
-			);
-			
-       		map.panTo( [latitude, longitude] );
-       		L.marker([latitude, longitude]).addTo(map);
-        }
-    });
+	while (address.search(" ") != -1)
+	{
+		address = address.replace(" ", "+");
+	}
+
+
 }
 
 /** KOMMENTARER OG NOTATER PÅ BRUK AV KART.
