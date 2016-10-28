@@ -48,7 +48,7 @@ $(document).ready(function () {
 		e.preventDefault();
 
 		var address = $('#searchfield').val();
-		var url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+address;
+		var url = 'https://ws.geonorge.no/SKWS3Index/ssr/address='+address;
 
 		if (address != "") {
 			$.ajax({
@@ -61,12 +61,12 @@ $(document).ready(function () {
 				{
 					var latitude = parseFloat(
 						JSON.stringify(
-							data.results[0].geometry.location.lat
+							data.adresser[0].nord
 						)
 					);
 					var longitude = parseFloat(
 						JSON.stringify(
-							data.results[0].geometry.location.lng
+							data.adresser[0].aust
 						)
 					);
 
@@ -89,22 +89,23 @@ function lookUpAddress( address )
 
 
 <<<<<<< HEAD
-	var url = 'http://ws.geonorge.no/AdresseWS/adresse/sok?address='+address;
+	var url = 'https://ws.geonorge.no/SKWS3Index/ssr/address='+address;
+	
     $.ajax(
     {
         url: url,
         dataType: "json",
         success: function (data) 
         {
-			
+					
         	var latitude = parseFloat(
         		JSON.stringify(
-        			data.results[0].geometry.location.lat
+        			data.adresser[0].nord
     			)
     		);
 			var longitude = parseFloat(
 				JSON.stringify(
-					data.results[0].geometry.location.lng
+					data.adresser[0].aust
 				)
 			);
 			
