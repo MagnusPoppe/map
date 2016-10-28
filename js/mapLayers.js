@@ -38,6 +38,34 @@ function setRoadLayer()
 	}).addTo(map);
 }
 
+function getDepartureTimes( bus_stop_id )
+{
+	var url = "http://apidev.reiseinfo.no/bin/rest.exe/v1.1/vs_restapi/departureBoard";
+	// ?format=json&authKey=api-test&time=16:50&id=762139955
+
+	var departures = new Array();
+	var time = new Date();
+
+	$.ajax({
+		url: url,
+		method: "get",
+		datatype: "json",
+		async: false,
+		data: {
+			"id" 		: bus_stop_id,
+			"format" 	: "json",
+			"authKey" 	: "api-test",
+			"time" 		: time.getHours() + ":" + time.getMinutes()
+		},
+		success : function (e)
+		{
+			departures = e.DepartureBoard.Departure;
+		}
+	});
+
+	return departures;
+}
+
 function setBusStops( pos )
 {
 	var latitude = pos[0];
