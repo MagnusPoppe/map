@@ -4,9 +4,7 @@ function addHotSpotIcon(lat, lng){
         iconUrl: 'Ikoner/available_hotspot1_icon.png',
 
         iconSize: [40, 40],
-        iconAnchor: [20, 40],
-
-
+        iconAnchor: [20, 40]
 });
 
     L.marker([lat, lng], {icon: hotSpotIcon}).addTo(map)
@@ -18,9 +16,7 @@ function addBusIcon(lat, lng){
         iconUrl: 'Ikoner/bus_icon.png',
 
         iconSize: [40, 40],
-        iconAnchor: [20, 20],
-
-
+        iconAnchor: [20, 20]
     });
 
     L.marker([lat, lng], {icon: hotSpotIcon}).addTo(map)
@@ -32,9 +28,7 @@ function addMeIcon(lat, lng){
         iconUrl: 'Ikoner/me_pin_icon.png',
 
         iconSize: [40, 40],
-        iconAnchor: [20, 40],
-
-
+        iconAnchor: [20, 40]
     });
 
     L.marker([lat, lng], {icon: hotSpotIcon}).addTo(map)
@@ -46,9 +40,7 @@ function addSearchIcon(lat, lng){
         iconUrl: 'Ikoner/search_icon.png',
 
         iconSize: [40, 40],
-        iconAnchor: [20, 20],
-
-
+        iconAnchor: [20, 20]
     });
 
     L.marker([lat, lng], {icon: hotSpotIcon}).addTo(map)
