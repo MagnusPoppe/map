@@ -3,8 +3,17 @@
  */
 $(document).ready(function () {
 
-    $("body").on('click', function () {
-        // $("#meny").css("bottom", "0");
+    $("#swipeRight").on('change', function (e) {
+        $("#p").html(finnAdresse(lat));
+
+        $.ajax({
+        });
+    });
+
+    map.on('click', function (e) {
+        var pos = [e.latlng.lat, e.latlng.lng];
+
+        finnAdresse(pos, "stedFra");
         $("#meny").animate({bottom: "0"}, 500);
     });
 

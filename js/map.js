@@ -29,9 +29,8 @@ function showPosition( position )
 			position.coords.longitude
 		)
 	);
-
-	console.log( latitude+", "+latitude );
-	return [latitude, latitude];
+	var pos =  [latitude, longitude];
+	setBusStops(pos);
 }
 
 
@@ -130,8 +129,6 @@ function finnKoordinat( adresse ) {
 		}
 	});
 }
-
-finnKoordinat("Bø i Telemark");
 
 
 /** KOMMENTARER OG NOTATER PÅ BRUK AV KART.

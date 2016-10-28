@@ -33,8 +33,6 @@
 }
 
 #menyinnhold .til {
-    margin-top: 10px;
-    position: relative;
     margin-top: -23px;
 }
 
@@ -48,21 +46,28 @@
     margin-top: -30px;
 }
 
- #circle {
-      width: 15px;
-      height: 15px;
-      -webkit-border-radius: 8px;
-      -moz-border-radius: 8px;
-      border-radius: 8px;
-      margin-left: -45px;
-      margin-top: -15px;
-      background: #FF5722;
-      position: relative;
-    }
-    
-.lukk {
-    position: relative;
-    float: right;
-    font-size: 30px;
-    margin-top: -250px;
+#circle {
+  width: 15px;
+  height: 15px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  margin-left: -45px;
+  margin-top: -15px;
+  background: #FF5722;
+  position: relative;
+}
+
+#stedTil {
+    outline: none;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #388bd1;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+    color: #000;
+    box-shadow: none;
+    border-radius: 0;
 }

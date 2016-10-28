@@ -38,8 +38,11 @@ function setRoadLayer()
 	}).addTo(map);
 }
 
-function setBusStops(latitude, longitude )
+function setBusStops( pos )
 {
+	var latitude = pos[0];
+	var longitude = pos[1];
+
 	var stops = getBusstops( latitude, longitude );
 
 	for(var i = 0; i < stops.length; i++)
@@ -49,7 +52,6 @@ function setBusStops(latitude, longitude )
 function getBusstops( latitude, longitude )
 {
 	var url = "http://apidev.reiseinfo.no/openapi/proxy/location.nearbystops";
-		//?accessId=hack4no2016&originCoordLong="+longitude+"&originCoordLat="+latitude+"&format=json";
 
 	var bussStops = new Array();
 
@@ -80,3 +82,6 @@ function getBusstops( latitude, longitude )
 	});
 	return bussStops;
 }
+
+// Setter ut bussholdeplasser der du befinner der
+
