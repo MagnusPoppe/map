@@ -88,7 +88,7 @@ $(document).ready(function () {
 });
 
 
-// Plaserer en markør ved gitt koordinat
+// Plasserer en markør ved gitt koordinat
 function finnAdresse( koordinat )
 {
 	var nord = koordinat[0];
@@ -110,7 +110,7 @@ function finnAdresse( koordinat )
 	});
 }
 
-// Plaserer en markør ved gitt adresse
+// Plasserer en markør ved gitt adresse
 function finnKoordinat( adresse ) {
 	var url = 'http://ws.geonorge.no/AdresseWS/adresse/sok?sokestreng='+adresse;
 
