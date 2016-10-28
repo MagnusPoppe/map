@@ -8,7 +8,6 @@ var RINGERRIKE_LATLONG 	= [60.14, 10.25];
 
 // WMS TJENESTER: 
 var ROAD_LAYER_URL 	  =  "http://openwms.statkart.no/skwms1/wms.vegnett?";
-var ROAD_LAYER_URL2 	  =  "http://openwms.statkart.no/skwms1/wms.vegnett?VERSION=1.1.1&SERVICE=WMS&REQUEST=GetCapabilities";
 var ADDRESS_LAYER_URL =  "http://wms.geonorge.no/skwms1/wms.matrikkel.v1?request=G";
 
 function initializeMap( position ) 
@@ -37,4 +36,42 @@ function setRoadLayer()
 		format: 'image/png',
 		transparent: "true"
 	}).addTo(map);
+}
+
+function hey() {
+	console.log(getCheeseburgers( 59.41268, 9.06904 ));
+}
+
+function getBusstops( latitude, longitude )
+{
+	var url = "http://apidev.reiseinfo.no/openapi/proxy/location.nearbystops";
+		//?accessId=hack4no2016&originCoordLong="+longitude+"&originCoordLat="+latitude+"&format=json";
+
+	var bussStops = new Array();
+
+	$.ajax({
+		url: url,
+		method: "get",
+		datatype: "json",
+		async: false,
+		data: {
+			"accessId": "hack4no2016",
+			"format": "json",
+			"originCoordLat": latitude,
+			"originCoordLong": longitude
+		},
+		success : function (e)
+		{
+			for(var i = 0; i < e.stopLocationOrCoordLocation.length; i++)
+			{
+				bussStops[i] = {
+					"id" 		: e.stopLocationOrCoordLocation[i].StopLocation.extId,
+					"name" 		: e.stopLocationOrCoordLocation[i].StopLocation.name,
+					"latitude"	: e.stopLocationOrCoordLocation[i].StopLocation.lat,
+					"longitude" : e.stopLocationOrCoordLocation[i].StopLocation.lon
+				};
+			}
+		}
+	});
+	return bussStops;
 }
