@@ -59,3 +59,10 @@
       background: #FF5722;
       position: relative;
     }
+    
+.lukk {
+    position: relative;
+    float: right;
+    font-size: 30px;
+    margin-top: -250px;
+}
