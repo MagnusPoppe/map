@@ -6,21 +6,7 @@ var map;
 var BØ_LATLONG 			= [59.41085, 9.07256];
 var RINGERRIKE_LATLONG 	= [60.14, 10.25];
 
-function initializeMap( position ) 
-{
- 	map = L.map('map').setView(position, ZOOMLEVEL);
 
-    L.tileLayer('http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=norges_grunnkart&zoom={z}&x={x}&y={y}', 
-    {
-        attribution: '<a href="http://www.kartverket.no/">Kartverket</a>'
-    }).addTo(map);
-
-    function onMapClick(e) {
-    	var marker = L.marker(e.latlng).addTo(map);
-    	marker.bindPopup("koordinater: "+e.latlng);
-	}
-	map.on('click', onMapClick);
-}
 
 // Finner din posisjon
 function getLocation() 
