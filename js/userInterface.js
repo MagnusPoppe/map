@@ -30,23 +30,16 @@ function placeIcon(icon, lat, lng){
     L.marker([lat, lng], {icon: icon}).addTo(map)
 }
 
-function removeIcon(icon){
-    map.removeLayer(icon);
-}
-
 function replaceIcon(icon){
-
+    marker.setIcon(SEARCH_ICON);
 }
 
 $(document).ready(function () {
-    $(".leaflet-marker-icon").on('click', function () {
-        // $(this).hide();
-        alert(this);
-    });
-
     placeIcon(SEARCH_ICON, 59.41299, 9.06999);
+    placeIcon(SEARCH_ICON, 59.41299, 9.06989);
+
+    $(".leaflet-marker-icon").on('click', function () {
+        $(this).hide();
+
+    })
 });
-
-
-
-
