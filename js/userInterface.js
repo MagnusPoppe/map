@@ -1,53 +1,47 @@
-function addHotSpotIcon(lat, lng){
+var BUSS_ICON = L.icon({
+    iconUrl: 'Ikoner/bus_icon.png',
 
-    var hotSpotIcon = L.icon({
-        iconUrl: 'Ikoner/available_hotspot1_icon.png',
-
-        iconSize: [40, 40],
-        iconAnchor: [20, 40],
-
-
+    iconSize: [40, 40],
+    iconAnchor: [20, 20]
 });
 
-    L.marker([lat, lng], {icon: hotSpotIcon}).addTo(map)
+var AVAILABLE_HOTSPOT_ICON = L.icon({
+    iconUrl: 'Ikoner/available_hotspot1_icon.png',
+
+    iconSize: [40, 40],
+    iconAnchor: [20, 40]
+});
+
+var ME_ICON = L.icon({
+    iconUrl: 'Ikoner/me_pin_icon.png',
+
+    iconSize: [40, 40],
+    iconAnchor: [20, 40]
+});
+
+var SEARCH_ICON = L.icon({
+    iconUrl: 'Ikoner/search_icon.png',
+
+    iconSize: [40, 40],
+    iconAnchor: [20, 20]
+});
+
+function placeIcon(icon, lat, lng){
+    L.marker([lat, lng], {icon: icon}).addTo(map)
 }
 
-function addBusIcon(lat, lng){
-
-    var hotSpotIcon = L.icon({
-        iconUrl: 'Ikoner/bus_icon.png',
-
-        iconSize: [40, 40],
-        iconAnchor: [20, 20],
-    });
-
-    L.marker([lat, lng], {icon: hotSpotIcon}).addTo(map)
+function removeIcon(icon){
+    removeLayer(this);
 }
 
-function addMeIcon(lat, lng){
+function replaceIcon(icon){
 
-    var hotSpotIcon = L.icon({
-        iconUrl: 'Ikoner/me_pin_icon.png',
-
-        iconSize: [40, 40],
-        iconAnchor: [20, 40],
-
-
-    });
-
-    L.marker([lat, lng], {icon: hotSpotIcon}).addTo(map)
 }
 
-function addSearchIcon(lat, lng){
-
-    var hotSpotIcon = L.icon({
-        iconUrl: 'Ikoner/search_icon.png',
-
-        iconSize: [40, 40],
-        iconAnchor: [20, 20],
+$(document).ready(function () {
+    $(".leaflet-marker-icon").on("click", function () {
+        removeIcon();
+    })
+});
 
 
-    });
-
-    L.marker([lat, lng], {icon: hotSpotIcon}).addTo(map)
-}
