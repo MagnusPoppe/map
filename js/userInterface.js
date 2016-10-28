@@ -3,9 +3,9 @@ function addHotSpotIcon(lat, lng){
     var hotSpotIcon = L.icon({
         iconUrl: 'Ikoner/available_hotspot1_icon.png',
 
-        iconSize: [55, 75],
-        iconAnchor: [lng, lat ],
-        //popupAnchor: [100, 95]
+        iconSize: [40, 40],
+        iconAnchor: [20, 40],
+
 
 });
 
@@ -17,9 +17,9 @@ function addBusIcon(lat, lng){
     var hotSpotIcon = L.icon({
         iconUrl: 'Ikoner/bus_icon.png',
 
-        iconSize: [55, 75],
-        iconAnchor: [lng, lat ],
-        //popupAnchor: [0, 95]
+        iconSize: [40, 40],
+        iconAnchor: [20, 20],
+
 
     });
 
@@ -29,11 +29,11 @@ function addBusIcon(lat, lng){
 function addMeIcon(lat, lng){
 
     var hotSpotIcon = L.icon({
-        iconUrl: 'Ikoner/me_icon.png',
+        iconUrl: 'Ikoner/me_pin_icon.png',
 
-        iconSize: [55, 75],
-        iconAnchor: [lng, lat ],
-        //popupAnchor: [0, 95]
+        iconSize: [40, 40],
+        iconAnchor: [20, 40],
+
 
     });
 
@@ -45,9 +45,9 @@ function addSearchIcon(lat, lng){
     var hotSpotIcon = L.icon({
         iconUrl: 'Ikoner/search_icon.png',
 
-        iconSize: [55, 75],
-        iconAnchor: [lng, lat ],
-        //popupAnchor: [0, 95]
+        iconSize: [40, 40],
+        iconAnchor: [20, 20],
+
 
     });
 
