@@ -38,6 +38,21 @@ function showPosition( position )
 function placeHotspots( position ) 
 {
 	// Plasser ut de forskjellige hotspots med
+	/* 
+	[59.41379, 9.08344] /n
+	[59.40251, 9.07118] /n
+	[59.45236, 9.06837] /n
+	[59.4445, 9.06331] /n
+	[59.43936, 9.08228] /n
+	[59.43681, 9.06845] /n
+	[59.41982, 9.07735] /n
+	[59.41513, 9.07677] /n
+	[59.4264, 9.0815] /n
+	[59.42344, 9.0626] /n
+	[59.41864, 9.0555] /n
+	[59.44499, 9.0642] /n
+	
+	*/
 	// denne funskjonen. @elisekrist
 }
 
