@@ -1,0 +1,8 @@
+#meny {
+    z-index: 999;
+    position: fixed;
+    bottom: -400px;
+    background-color: black;
+    height: 400px;
+    width: 100%;
+}

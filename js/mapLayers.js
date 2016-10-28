@@ -3,7 +3,7 @@ var ZOOMLEVEL = 14;
 var map;
 
 // POSISJONER:
-var BØ_LATLONG 			= [59.41085, 9.07256];
+var BOE_LATLONG 		= [59.41085, 9.07256];
 var RINGERRIKE_LATLONG 	= [60.14, 10.25];
 
 // WMS TJENESTER: 
