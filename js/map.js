@@ -10,8 +10,8 @@ var RINGERRIKE_LATLONG 	= [60.14, 10.25];
 function getLocation() 
 {
 	if (navigator.geolocation) {
-		alert(navigator.geolocation.getCurrentPosition(showPosition) );
-	} else { 
+		navigator.geolocation.getCurrentPosition(showPosition);
+	} else {
 		alert("Geolocation is not supported by this browser.");
 	}
 }
@@ -33,6 +33,8 @@ function showPosition( position )
 	console.log( latitude+", "+latitude );
 	return [latitude, latitude];
 }
+
+getLocation();
 
 
 function placeHotspots( position ) 
@@ -107,7 +109,7 @@ function finnAdresse( koordinat, metode )
 			if (metode == "marker") {
 				L.marker([nord, aust]).bindTooltip(adressenavn + " " + husNr + " " + poststed, {permanent: true}).openTooltip().addTo(map);
 			} else {
-				$("#" + metode).append(adresse);
+				$("#" + metode).html(adresse);
 			}
 
 		}

@@ -13,7 +13,7 @@ $(document).ready(function () {
     map.on('click', function (e) {
         var pos = [e.latlng.lat, e.latlng.lng];
 
-        finnAdresse(pos, "tekst");
+        finnAdresse(pos, "stedFra");
         $("#meny").animate({bottom: "0"}, 500);
     });
 
