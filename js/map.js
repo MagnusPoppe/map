@@ -47,10 +47,10 @@ $(document).ready(function () {
 	$("#search").on('submit', function (e) {
 		e.preventDefault();
 
-		var address = $('#searchfield').val();
-		var url = 'https://ws.geonorge.no/SKWS3Index/ssr/address='+address;
+		var sok = $('#searchfield').val();
+		var url = 'http://ws.geonorge.no/AdresseWS/adresse/sok?sok='+sok;
 
-		if (address != "") {
+		if (sok != "") {
 			$.ajax({
 				url: url,
 				type: "POST",
@@ -79,17 +79,19 @@ $(document).ready(function () {
 });
 
 
-function lookUpAddress( address )
+function lookUpAddress( sok )
 {
 
-	while (address.search(" ") != -1)
+	while (sok.search(" ") != -1)
 	{
-		address = address.replace(" ", "+");
+		sok = sok.replace(" ", "+");
 	}
 
 
 <<<<<<< HEAD
-	var url = 'https://ws.geonorge.no/SKWS3Index/ssr/address='+address;
+	var url = 'http://ws.geonorge.no/AdresseWS/adresse/sok?sok='+sok;
+	
+	
 	
     $.ajax(
     {
