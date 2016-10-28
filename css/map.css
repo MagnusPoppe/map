@@ -23,8 +23,8 @@ button:hover {
 
 #map {
     z-index: 0;
-
 }
+
 #search {
     position: fixed;
     height: 25px;
