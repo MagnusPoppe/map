@@ -79,3 +79,71 @@ function getBusstops( latitude, longitude )
 
 // Setter ut bussholdeplasser der du befinner der
 
+
+
+// Finner og legger ikon på hotspots
+function placeHotspots( position ) 
+{
+
+	for(var i = 0; i < 500; i++)
+		placeIcon(AVAILABLE_HOTSPOT_ICON,  59.41379, 9.08344 );
+		placeIcon(AVAILABLE_HOTSPOT_ICON,  59.40251, 9.07118 );
+		placeIcon(AVAILABLE_HOTSPOT_ICON,  59.45236, 9.06837 );
+		placeIcon(AVAILABLE_HOTSPOT_ICON,  59.4445, 9.06331 );
+		placeIcon(AVAILABLE_HOTSPOT_ICON,  59.43936, 9.08228 );
+		placeIcon(AVAILABLE_HOTSPOT_ICON,  59.43681, 9.06845 );
+		placeIcon(ACTIVE_HOTSPOT_ICON,  59.41982, 9.07735 );
+		placeIcon(ACTIVE_HOTSPOT_ICON,  59.41513, 9.07677 );
+		placeIcon(ACTIVE_HOTSPOT_ICON,  59.4264, 9.0815 );
+		placeIcon(ACTIVE_HOTSPOT_ICON,  59.42344, 9.0626 );
+		placeIcon(ACTIVE_HOTSPOT_ICON,  59.41864, 9.0555 );
+		
+	// Plasser ut de forskjellige hotspots med
+	/* 
+	[59.41379, 9.08344] /n
+	[59.40251, 9.07118] /n
+	[59.45236, 9.06837] /n
+	[59.4445, 9.06331] /n
+	[59.43936, 9.08228] /n
+	[59.43681, 9.06845] /n
+	[59.41982, 9.07735] /n
+	[59.41513, 9.07677] /n
+	[59.4264, 9.0815] /n
+	[59.42344, 9.0626] /n
+	[59.41864, 9.0555] /n
+	[59.44499, 9.0642] /n
+	
+	*/
+	// denne funskjonen. @elisekrist
+}
+function getBusstops( latitude, longitude )
+{
+	var bussStops = new Array();
+
+	$.ajax({
+		url: url,
+		method: "get",
+		datatype: "json",
+		async: false,
+		data: {
+			"accessId": "hack4no2016",
+			"format": "json",
+			"originCoordLat": latitude,
+			"originCoordLong": longitude,
+			"maxNo"	: 50
+		},
+		success : function (e)
+		{
+			for(var i = 0; i < e.stopLocationOrCoordLocation.length; i++)
+			{
+				bussStops[i] = {
+					"id" 		: e.stopLocationOrCoordLocation[i].StopLocation.extId,
+					"name" 		: e.stopLocationOrCoordLocation[i].StopLocation.name,
+					"latitude"	: e.stopLocationOrCoordLocation[i].StopLocation.lat,
+					"longitude" : e.stopLocationOrCoordLocation[i].StopLocation.lon
+				};
+			}
+		}
+	});
+	return bussStops;
+}

@@ -6,7 +6,21 @@ var BUSS_ICON = L.icon({
 });
 
 var AVAILABLE_HOTSPOT_ICON = L.icon({
-    iconUrl: 'Ikoner/buss_stop.png',
+    iconUrl: 'Ikoner/available_icon.png',
+
+    iconSize: [40, 40],
+    iconAnchor: [20, 40]
+});
+
+var ACTIVE_HOTSPOT_ICON = L.icon({
+    iconUrl: 'Ikoner/active_icon.png',
+
+    iconSize: [40, 40],
+    iconAnchor: [20, 40]
+});
+
+var BUS_STOP_ICON = L.icon({
+    iconUrl: 'Ikoner/bus_stop_icon.png',
 
     iconSize: [40, 40],
     iconAnchor: [20, 40]
