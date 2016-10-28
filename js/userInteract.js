@@ -27,3 +27,10 @@ $(document).ready(function () {
     });
     
 });
+
+function plannerInfoFill( id )
+{
+    var departure = getDepartureTimes(id);
+    $("#menyinnhold h1").html(departure[0].name + " " + departure[0].direction);
+    $("#menyinnhold h3").html(departure[0].stop);
+}
