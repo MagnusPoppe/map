@@ -20,4 +20,10 @@ $(document).ready(function () {
     $("#menyClose").on('click', function() {
 
     });
+    
+    $('.lukk').on('click', function(){
+        $("#meny").animate({bottom: "-500"}, 500);
+        $(".lukk").removeClass("active");
+    });
+    
 });

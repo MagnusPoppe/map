@@ -6,7 +6,7 @@ var BUSS_ICON = L.icon({
 });
 
 var AVAILABLE_HOTSPOT_ICON = L.icon({
-    iconUrl: 'Ikoner/available_hotspot1_icon.png',
+    iconUrl: 'Ikoner/buss_stop.png',
 
     iconSize: [40, 40],
     iconAnchor: [20, 40]

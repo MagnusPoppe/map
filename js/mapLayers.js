@@ -10,12 +10,12 @@ var RINGERRIKE_LATLONG 	= [60.14, 10.25];
 var ROAD_LAYER_URL 	  =  "http://openwms.statkart.no/skwms1/wms.vegnett?";
 var ADDRESS_LAYER_URL =  "http://wms.geonorge.no/skwms1/wms.matrikkel.v1?request=G";
 
-function initializeMap( position ) 
+function initializeMap( position )
 {
  	// INITIALIZING THE MAIN MAP:
- 	map = L.map('map').setView(position, ZOOMLEVEL);
+ 	map = L.map('map').setView(BOE_LATLONG, ZOOMLEVEL);
 
-    L.tileLayer('http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=norges_grunnkart&zoom={z}&x={x}&y={y}', 
+    L.tileLayer('http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=norges_grunnkart&zoom={z}&x={x}&y={y}',
     {
         attribution: '<a href="http://www.kartverket.no/">Kartverket</a>'
     }).addTo(map);
@@ -25,8 +25,6 @@ function initializeMap( position )
     	marker.bindPopup("koordinater: "+e.latlng);
 	}
 	map.on('click', onMapClick);
-
-	setRoadLayer();
 }
 
 function setRoadLayer() 
@@ -68,10 +66,7 @@ function getDepartureTimes( bus_stop_id )
 
 function setBusStops( pos )
 {
-	var latitude = pos[0];
-	var longitude = pos[1];
-
-	var stops = getBusstops( latitude, longitude );
+	var stops = getBusstops( pos[0], pos[1] );
 
 	for(var i = 0; i < stops.length; i++)
 		placeIcon(AVAILABLE_HOTSPOT_ICON,  stops[i].latitude, stops[i].longitude );
@@ -80,7 +75,6 @@ function setBusStops( pos )
 function getBusstops( latitude, longitude )
 {
 	var url = "http://apidev.reiseinfo.no/openapi/proxy/location.nearbystops";
-
 	var bussStops = new Array();
 
 	$.ajax({
