@@ -48,33 +48,27 @@ $(document).ready(function () {
 		e.preventDefault();
 
 		var sok = $('#searchfield').val();
-		var url = 'http://ws.geonorge.no/AdresseWS/adresse/sok?sok='+sok;
+		var url = 'http://ws.geonorge.no/AdresseWS/adresse/sok?sokestreng='+sok;
 
 		if (sok != "") {
 			$.ajax({
 				url: url,
-				type: "POST",
-				data: new FormData(this),
-				contentType: false,
-				processData: false,
+				dataType: "json",
 				success: function (data)
 				{
+					console.log(data);
 					var latitude = parseFloat(
-						JSON.stringify(
 							data.adresser[0].nord
-						)
 					);
 					var longitude = parseFloat(
-						JSON.stringify(
 							data.adresser[0].aust
-						)
 					);
-
+					console.log ([latitude, longitude]);
 					map.panTo( [latitude, longitude] );
 					L.marker([latitude, longitude]).addTo(map);
 				}
 			});
-		} else return false;
+		}
 	});
 });
 
@@ -86,37 +80,25 @@ function lookUpAddress( sok )
 	{
 		sok = sok.replace(" ", "+");
 	}
-
-
-<<<<<<< HEAD
-	var url = 'http://ws.geonorge.no/AdresseWS/adresse/sok?sok='+sok;
-	
-	
-	
+	var url = 'http://ws.geonorge.no/AdresseWS/adresse/sok?sokestreng='+sok;
     $.ajax(
     {
         url: url,
         dataType: "json",
         success: function (data) 
         {
-					
         	var latitude = parseFloat(
-        		JSON.stringify(
         			data.adresser[0].nord
-    			)
     		);
 			var longitude = parseFloat(
-				JSON.stringify(
 					data.adresser[0].aust
-				)
 			);
 			
        		map.panTo( [latitude, longitude] );
        		L.marker([latitude, longitude]).addTo(map);
+			  console.log(data);
         }
     });
-=======
->>>>>>> 7fe508d0c41e4074b815299a9db2f64f42e91fe3
 }
 
 /** KOMMENTARER OG NOTATER PÅ BRUK AV KART.
