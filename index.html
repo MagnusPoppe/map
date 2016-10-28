@@ -3,7 +3,7 @@
 <head>
 
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">    
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Kartverket API test</title>
 
     <!-- EKSTERNE RESSURSSER: -->
@@ -12,37 +12,28 @@
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
 
 	<!-- INTERNE RESSURSSER -->
-	<script src="map.js"></script>
+	<script src="dist/map.js"></script>
     <link rel="stylesheet" type="text/css" href="map.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.css">
 <head>
 
 <body>
 
-	<section class="hero">
-		<div class="hero-body">
-			<div class="container">
-				<h1 class="title">Velkommen til BUSSAPPEN!</h1>
-				<h2 class="subtitle">En enklere bussopplevelse</h2>
-			</div>
-		</div>
-	</section>
-	
-	<section class="hero is-large">
-		<form id="search" action="#" method="">
-			<div class="control is-grouped is-pulled-right">
-				<input class="input" type="text" cellpadding="0" cellspacing="0" placeholder="Søk etter adresse/sted" id="searchfield">
-				<input class="button" type="submit" id="btnsearch" onclick="lookUpAddress($('#searchfield').val())">
-			</div>		
-		</form>
+	<section class="hero is-fullheight">
 		<div class="hero-body" id="map">
 		</div>
 	</section>
-	
+	<form id="search" action="#" method="POST">
+		<div class="control is-grouped is-pulled-right">
+			<input class="input" type="text" cellpadding="0" cellspacing="0" placeholder="Søk etter adresse/sted" id="searchfield">
+			<input class="button" type="submit" id="btnsearch" onclick="lookUpAddress($('#searchfield').val())">
+		</div>
+	</form>
+
 	<script>
 		initializeMap(BØ_LATLONG);
 		//placeHotspots();
-    </script>    
+    </script>
 </body>
 </html>
 
