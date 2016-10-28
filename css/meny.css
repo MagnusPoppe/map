@@ -1,8 +1,61 @@
+/* Farger: 
+    Orange: #FF5722
+    Blå: #3B73AD
+*/
+
 #meny {
-    z-index: 999;
+    z-index: 100;
     position: fixed;
-    bottom: -400px;
-    background-color: black;
-    height: 400px;
+    bottom: -350px;
+    background-color: white;
+    height: 350px;
     width: 100%;
+    color: black;
 }
+
+#menyinnhold {
+    width: 70%;
+    margin: auto;
+    margin-top: 30px;
+}
+
+#menyinnhold h1 {
+    font-size: 30px;
+}
+
+#menyinnhold h3 {
+    font-size: 20px;
+}
+
+#menyinnhold .fra {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#menyinnhold .til {
+    margin-top: 10px;
+    position: relative;
+    margin-top: -23px;
+}
+
+ .strek {
+    width: 5px;
+    height: 190px;
+    background-color:#FF5722;
+    z-index: 1000;
+    position: relative;
+    margin-left: -40px;
+    margin-top: -30px;
+}
+
+ #circle {
+      width: 15px;
+      height: 15px;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      border-radius: 8px;
+      margin-left: -45px;
+      margin-top: -15px;
+      background: #FF5722;
+      position: relative;
+    }
