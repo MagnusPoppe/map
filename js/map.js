@@ -86,8 +86,8 @@ $(document).ready(function () {
 });
 
 
-// Plaserer en markør ved gitt koordinat
-function finnAdresse( koordinat )
+// Plaserer en markør ved gitt koordinat. Metode: Markør eller adresse som utdata
+function finnAdresse( koordinat, metode )
 {
 	var nord = koordinat[0];
 	var aust = koordinat[1];
@@ -102,8 +102,14 @@ function finnAdresse( koordinat )
 			var husNr = parseFloat(data.adresser[0].husnr);
 			var poststed = (data.adresser[0].poststed);
 
-			L.marker([nord, aust]).bindTooltip(adressenavn + " " + husNr + " " + poststed
-				, {permanent: true}).openTooltip().addTo(map);
+			var adresse = adressenavn + " " + husNr + " " + poststed;
+
+			if (metode == "marker") {
+				L.marker([nord, aust]).bindTooltip(adressenavn + " " + husNr + " " + poststed, {permanent: true}).openTooltip().addTo(map);
+			} else {
+				$("#" + metode).append(adresse);
+			}
+
 		}
 	});
 }
@@ -127,11 +133,13 @@ function finnKoordinat( adresse ) {
 			var adresse = adressenavn + " " + husNr + " " + poststed;
 
 			L.marker([latitude, longitude]).bindTooltip(adresse, {permanent: true}).openTooltip().addTo(map);
+
+			return koordinat;
 		}
 	});
 }
 
-finnKoordinat("Bø i Telemark");
+
 
 
 /** KOMMENTARER OG NOTATER PÅ BRUK AV KART.

@@ -2,12 +2,18 @@
  * Created by Jørgen on 28.10.2016.
  */
 $(document).ready(function () {
-    $.ajax({
 
+    $("#swipeRight").on('change', function (e) {
+        $("#p").html(finnAdresse(lat));
+
+        $.ajax({
+        });
     });
 
-    $("body").on('click', function () {
-        // $("#meny").css("bottom", "0");
+    map.on('click', function (e) {
+        var pos = [e.latlng.lat, e.latlng.lng];
+
+        finnAdresse(pos, "tekst");
         $("#meny").animate({bottom: "0"}, 500);
     });
 
