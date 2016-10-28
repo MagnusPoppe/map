@@ -1,19 +1,33 @@
-var BUSS_ICON = L.icon({
+var BUS_ICON = L.icon({
     iconUrl: 'Ikoner/bus_icon.png',
 
     iconSize: [40, 40],
     iconAnchor: [20, 20]
 });
 
-var AVAILABLE_HOTSPOT_ICON = L.icon({
-    iconUrl: 'Ikoner/buss_stop.png',
+var BUS_STOP_ICON = L.icon({
+    iconUrl: 'Ikoner/bus_stop_icon.png',
+
+    iconSize: [40, 40],
+    iconAnchor: [20, 20]
+});
+
+var ACTIVE_HOTSPOT_ICON = L.icon({
+    iconUrl: 'Ikoner/active_hotspot_icon.png',
+
+    iconSize: [40, 40],
+    iconAnchor: [20, 40]
+});
+
+var INACTIVE_HOTSPOT_ICON = L.icon({
+    iconUrl: 'Ikoner/inactive_hotspot_icon.png',
 
     iconSize: [40, 40],
     iconAnchor: [20, 40]
 });
 
 var ME_ICON = L.icon({
-    iconUrl: 'Ikoner/me_pin_icon.png',
+    iconUrl: 'Ikoner/me_icon.png',
 
     iconSize: [40, 40],
     iconAnchor: [20, 40]
@@ -26,8 +40,18 @@ var SEARCH_ICON = L.icon({
     iconAnchor: [20, 20]
 });
 
+var SETTINGS_ICON = L.icon({
+    iconUrl: 'Ikoner/settings_icon.png',
+
+    iconSize: [40, 40],
+    iconAnchor: [20, 20]
+});
+
 function placeIcon(icon, lat, lng){
-    L.marker([lat, lng], {icon: icon}).addTo(map)
+    var v = L.marker([lat, lng], {icon: icon}).addTo(map)
+    /*v.on('click', function(e){
+        alert("asd");
+    })*/
 }
 
 function replaceIcon(icon){
@@ -35,11 +59,24 @@ function replaceIcon(icon){
 }
 
 $(document).ready(function () {
-    placeIcon(SEARCH_ICON, 59.41299, 9.06999);
-    placeIcon(SEARCH_ICON, 59.41299, 9.06989);
+    placeIcon(INACTIVE_HOTSPOT_ICON, 60.15722621783532, 10.253033638000488);
+
 
     $(".leaflet-marker-icon").on('click', function () {
-        $(this).hide();
+        var test = $('.leaflet-marker-icon').prop('src');
+        var path = test.replace("file:///C:/xampp/htdocs/map/", "");
+        console.log(path);
+       // var image = $('.leaflet-marker-icon').attr(src);
+        if(path == 'Ikoner/inactive_hotspot_icon.png'){
+            $(this).attr("src", 'Ikoner/active_hotspot_icon.png');
+        }
+
+        if (path == 'Ikoner/active_hotspot_icon.png'){
+            alert("this");
+        }
+
+
+
 
     })
 });
