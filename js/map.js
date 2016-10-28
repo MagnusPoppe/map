@@ -47,47 +47,58 @@ $(document).ready(function () {
 	$("#search").on('submit', function (e) {
 		e.preventDefault();
 
-		var address = $('#searchfield').val();
-		var url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+address;
+		var sok = $('#searchfield').val();
+		var url = 'http://ws.geonorge.no/AdresseWS/adresse/sok?sokestreng='+sok;
 
-		if (address != "") {
+		if (sok != "") {
 			$.ajax({
 				url: url,
-				type: "POST",
-				data: new FormData(this),
-				contentType: false,
-				processData: false,
+				dataType: "json",
 				success: function (data)
 				{
+					console.log(data);
 					var latitude = parseFloat(
-						JSON.stringify(
-							data.results[0].geometry.location.lat
-						)
+							data.adresser[0].nord
 					);
 					var longitude = parseFloat(
-						JSON.stringify(
-							data.results[0].geometry.location.lng
-						)
+							data.adresser[0].aust
 					);
-
+					console.log ([latitude, longitude]);
 					map.panTo( [latitude, longitude] );
 					L. 	([latitude, longitude]).addTo(map);
 				}
 			});
-		} else return false;
+		}
 	});
 });
 
 
-function lookUpAddress( address )
+function lookUpAddress( sok )
 {
 
-	while (address.search(" ") != -1)
+	while (sok.search(" ") != -1)
 	{
-		address = address.replace(" ", "+");
+		sok = sok.replace(" ", "+");
 	}
-
-
+	var url = 'http://ws.geonorge.no/AdresseWS/adresse/sok?sokestreng='+sok;
+    $.ajax(
+    {
+        url: url,
+        dataType: "json",
+        success: function (data) 
+        {
+        	var latitude = parseFloat(
+        			data.adresser[0].nord
+    		);
+			var longitude = parseFloat(
+					data.adresser[0].aust
+			);
+			
+       		map.panTo( [latitude, longitude] );
+       		L.marker([latitude, longitude]).addTo(map);
+			  console.log(data);
+        }
+    });
 }
 
 /** KOMMENTARER OG NOTATER PÅ BRUK AV KART.
