@@ -65,7 +65,7 @@ $(document).ready(function () {
 					);
 					console.log ([latitude, longitude]);
 					map.panTo( [latitude, longitude] );
-					L. 	([latitude, longitude]).addTo(map);
+					L.marker([latitude, longitude]).addTo(map);
 				}
 			});
 		}
