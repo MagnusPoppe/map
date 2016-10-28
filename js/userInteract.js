@@ -2,9 +2,6 @@
  * Created by Jørgen on 28.10.2016.
  */
 $(document).ready(function () {
-    $.ajax({
-
-    });
 
     $("body").on('click', function () {
         // $("#meny").css("bottom", "0");

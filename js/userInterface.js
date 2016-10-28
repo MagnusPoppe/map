@@ -31,7 +31,7 @@ function placeIcon(icon, lat, lng){
 }
 
 function removeIcon(icon){
-    removeLayer(this);
+    map.removeLayer(icon);
 }
 
 function replaceIcon(icon){
@@ -39,9 +39,14 @@ function replaceIcon(icon){
 }
 
 $(document).ready(function () {
-    $(".leaflet-marker-icon").on("click", function () {
-        removeIcon();
-    })
+    $(".leaflet-marker-icon").on('click', function () {
+        // $(this).hide();
+        alert(this);
+    });
+
+    placeIcon(SEARCH_ICON, 59.41299, 9.06999);
 });
+
+
 
 
