@@ -7,7 +7,7 @@ var BOE_LATLONG 		= [59.41170376354018, 9.0730682015419];
 var RINGERRIKE_LATLONG 	= [60.14, 10.25];
 
 // Finner din posisjon
-function getLocation() 
+function goToLocation()
 {
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(showPosition);
@@ -29,8 +29,11 @@ function showPosition( position )
 			position.coords.longitude
 		)
 	);
-	var pos =  [latitude, longitude];
+	var pos = [latitude, longitude];
+	map.panTo(pos);
 	setBusStops(pos);
+	return pos;
+
 }
 
 
