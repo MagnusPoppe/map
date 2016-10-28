@@ -10,7 +10,7 @@ var RINGERRIKE_LATLONG 	= [60.14, 10.25];
 function getLocation() 
 {
 	if (navigator.geolocation) {
-		alert(navigator.geolocation.getCurrentPosition(showPosition) );
+		navigator.geolocation.getCurrentPosition(showPosition);
 	} else { 
 		alert("Geolocation is not supported by this browser.");
 	}
@@ -29,9 +29,8 @@ function showPosition( position )
 			position.coords.longitude
 		)
 	);
-
-	console.log( latitude+", "+latitude );
-	return [latitude, latitude];
+	var pos =  [latitude, longitude];
+	setBusStops(pos);
 }
 
 
@@ -130,8 +129,6 @@ function finnKoordinat( adresse ) {
 		}
 	});
 }
-
-finnKoordinat("Bø i Telemark");
 
 
 /** KOMMENTARER OG NOTATER PÅ BRUK AV KART.
