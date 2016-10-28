@@ -62,13 +62,14 @@ function lookUpAddress( address )
 	while (address.search(" ") != -1)
 	 	address = address.replace(" ", "+");
 
-	var url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+address;
+	var url = 'http://ws.geonorge.no/AdresseWS/adresse/sok?address='+address;
     $.ajax(
     {
         url: url,
         dataType: "json",
         success: function (data) 
         {
+			
         	var latitude = parseFloat(
         		JSON.stringify(
         			data.results[0].geometry.location.lat
