@@ -3,10 +3,8 @@ var ZOOMLEVEL = 14;
 var map;
 
 // POSISJONER:
-var BØ_LATLONG 			= [59.41170376354018, 9.0730682015419];
+var BOE_LATLONG 		= [59.41170376354018, 9.0730682015419];
 var RINGERRIKE_LATLONG 	= [60.14, 10.25];
-
-
 
 // Finner din posisjon
 function getLocation() 
@@ -73,32 +71,13 @@ $(document).ready(function () {
 });
 
 
-function lookUpAddress( sok )
+function lookUpAddress( kordinat )
 {
+	return "adresse";
+}
 
-	while (sok.search(" ") != -1)
-	{
-		sok = sok.replace(" ", "+");
-	}
-	var url = 'http://ws.geonorge.no/AdresseWS/adresse/sok?sokestreng='+sok;
-    $.ajax(
-    {
-        url: url,
-        dataType: "json",
-        success: function (data) 
-        {
-        	var latitude = parseFloat(
-        			data.adresser[0].nord
-    		);
-			var longitude = parseFloat(
-					data.adresser[0].aust
-			);
-			
-       		map.panTo( [latitude, longitude] );
-       		L.marker([latitude, longitude]).addTo(map);
-			  console.log(data);
-        }
-    });
+function lookUpCoordinate( adresse ) {
+	return "koordinat";
 }
 
 /** KOMMENTARER OG NOTATER PÅ BRUK AV KART.
