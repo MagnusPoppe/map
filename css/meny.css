@@ -71,3 +71,13 @@
     box-shadow: none;
     border-radius: 0;
 }
+
+.lukk {
+    font-size: 30px;
+    float: right;
+    margin-top: -290px;
+}
+
+.lukk:hover {
+    cursor: pointer;
+}
