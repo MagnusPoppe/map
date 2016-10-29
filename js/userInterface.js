@@ -12,6 +12,20 @@ var BUS_STOP_ICON = L.icon({
     iconAnchor: [20, 20]
 });
 
+var BUS_STOP_CHOSEN_ICON = L.icon({
+    iconUrl: 'Ikoner/bus_stop_chosen_icon.png',
+
+    iconSize: [40, 40],
+    iconAnchor: [20, 20]
+});
+
+var BUS_STOP_MARKED_ICON = L.icon({
+    iconUrl: 'Ikoner/bus_stop_marked_icon.png',
+
+    iconSize: [40, 40],
+    iconAnchor: [20, 20]
+});
+
 var ACTIVE_HOTSPOT_ICON = L.icon({
     iconUrl: 'Ikoner/active_hotspot_icon.png',
 
@@ -19,8 +33,29 @@ var ACTIVE_HOTSPOT_ICON = L.icon({
     iconAnchor: [20, 40]
 });
 
+var ACTIVE_HOTSPOT_MARKED_ICON = L.icon({
+    iconUrl: 'Ikoner/active_hotspot_marked_icon.png',
+
+    iconSize: [40, 40],
+    iconAnchor: [20, 40]
+});
+
+var ACTIVE_HOTSPOT_CHOSEN_ICON = L.icon({
+    iconUrl: 'Ikoner/active_hotspot_chosen_icon.png',
+
+    iconSize: [40, 40],
+    iconAnchor: [20, 40]
+});
+
 var INACTIVE_HOTSPOT_ICON = L.icon({
     iconUrl: 'Ikoner/inactive_hotspot_icon.png',
+
+    iconSize: [40, 40],
+    iconAnchor: [20, 40]
+});
+
+var INACTIVE_HOTSPOT_MARKED_ICON = L.icon({
+    iconUrl: 'Ikoner/inactive_hotspot_marked_icon.png',
 
     iconSize: [40, 40],
     iconAnchor: [20, 40]
