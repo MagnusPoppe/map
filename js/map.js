@@ -31,7 +31,8 @@ function showPosition( position )
 	);
 	var pos = [latitude, longitude];
 	map.panTo(pos);
-	setBusStops(pos);
+	placeBusStops(pos);
+	placeIcon(ME_ICON, latitude, longitude);
 	return pos;
 
 }

@@ -21,7 +21,7 @@ $(document).ready(function () {
 
     map.on("click", function (e) {
         var pos = [e.latlng.lat, e.latlng.lng];
-        setBusStops(pos);
+        placeBusStops(pos);
     });
     
 });
