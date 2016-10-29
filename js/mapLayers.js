@@ -24,7 +24,9 @@ function initializeMap( position )
     	var marker = L.marker(e.latlng).addTo(map);
     	marker.bindPopup("koordinater: "+e.latlng);
 	}
-	//map.on('click', onMapClick);
+	map.on('click', function (e) {
+		console.log("[ "+e.latlng.lat + ", " + e.latlng.lng + " ]");
+	});
 }
 
 function setRoadLayer() 
