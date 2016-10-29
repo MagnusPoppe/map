@@ -47,7 +47,11 @@ function plannerInfoFill( id )
 
     // Placing data into the DOM:
     $("#menyinnhold h1").html(departure[0].name + " " + departure[0].direction);
+<<<<<<< HEAD
     $("#menyinnhold .stedFra").html(departure[0].stop);
+=======
+    $("#menyinnhold .fra").html(departure[0].stop);
+>>>>>>> 196e332e8197739f7a37b36a5dcd977aa96da2c8
     $("#menyinnhold .fratid").html(departure[0].time);
 }
 
