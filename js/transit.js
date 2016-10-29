@@ -2,7 +2,35 @@
  * Created by MagnusPoppe on 29/10/2016.
  */
 
+// The selected variable holds a selected busstop/hotspot if
+// one is selected. If no stop/hotspot is selected, the variable is undefined.
+var selected_from;
+var selected_to;
 
+function selectFrom( bus_stop_id )
+{
+    selected_from = bus_stop_id;
+}
+
+function selectTo( bus_stop_id )
+{
+    selected_to = bus_stop_id;
+}
+
+function deselectFrom( bus_stop_id )
+{
+    selected_from = undefined;
+}
+
+function deselectTo( bus_stop_id )
+{
+    selected_to = undefined;
+}
+
+function deselectAll() {
+    selected_from = undefined;
+    selected_to   = undefined;
+}
 
 function getBusstops( latitude, longitude )
 {
