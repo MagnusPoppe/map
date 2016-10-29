@@ -62,8 +62,6 @@ function replaceIcon(icon){
 }
 
 $(document).ready(function () {
-    placeIcon(INACTIVE_HOTSPOT_ICON, 60.15722621783532, 10.253033638000488);
-
 
     $(".leaflet-marker-icon").on('click', function () {
         var test = $('.leaflet-marker-icon').prop('src');
