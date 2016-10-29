@@ -64,6 +64,7 @@ $(document).ready(function () {
 
     $(".leaflet-marker-icon").on('click', function () {
         var test = $('.leaflet-marker-icon').prop('src');
+        console.log(test);
         var path = test.replace("file:///C:/xampp/htdocs/map/", "");
         console.log(path);
        // var image = $('.leaflet-marker-icon').attr(src);
@@ -72,11 +73,8 @@ $(document).ready(function () {
         }
 
         if (path == 'Ikoner/active_hotspot_icon.png'){
-            alert("this");
+            $(this).attr("src", 'Ikoner/inactive_hotspot_icon.png');
         }
-
-
-
 
     })
 });

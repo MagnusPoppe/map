@@ -24,7 +24,7 @@ function initializeMap( position )
     	var marker = L.marker(e.latlng).addTo(map);
     	marker.bindPopup("koordinater: "+e.latlng);
 	}
-	map.on('click', onMapClick);
+	//map.on('click', onMapClick);
 }
 
 function setRoadLayer() 
@@ -69,7 +69,7 @@ function setBusStops( pos )
 	var stops = getBusstops( pos[0], pos[1] );
 
 	for(var i = 0; i < stops.length; i++)
-		placeIcon(AVAILABLE_HOTSPOT_ICON,  stops[i].latitude, stops[i].longitude );
+		var test = placeIcon(ACTIVE_HOTSPOT_ICON,  stops[i].latitude, stops[i].longitude );
 }
 
 function getBusstops( latitude, longitude )
