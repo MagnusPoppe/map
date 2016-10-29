@@ -9,6 +9,7 @@
 
 /**
  * Selects the from-variable
+ * @param bus_stop_id comes from the NRI API and is the "ExtID" identifier.
  */
 function selectFrom( bus_stop_id )
 {
@@ -17,6 +18,7 @@ function selectFrom( bus_stop_id )
 
 /**
  * Selects the to-variable
+ * @param bus_stop_id comes from the NRI API and is the "ExtID" identifier.
  */
 function selectTo( bus_stop_id )
 {
@@ -26,7 +28,7 @@ function selectTo( bus_stop_id )
 /**
  * Deselects the from-variable
  */
-function deselectFrom( bus_stop_id )
+function deselectFrom( )
 {
     selected_from = undefined;
 }
@@ -34,7 +36,7 @@ function deselectFrom( bus_stop_id )
 /**
  * Deselects the to-variable
  */
-function deselectTo( bus_stop_id )
+function deselectTo( )
 {
     selected_to = undefined;
 }
@@ -42,7 +44,7 @@ function deselectTo( bus_stop_id )
 /**
  * Deselects both selected-variables.
  */
-function deselectAll()
+function deselectAll( )
 {
     selected_from = undefined;
     selected_to   = undefined;
@@ -124,6 +126,5 @@ function getDepartureTimes( bus_stop_id )
             departures = e.DepartureBoard.Departure;
         }
     });
-    console.log(departures);
     return departures;
 }
