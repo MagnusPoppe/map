@@ -13,7 +13,7 @@ var ADDRESS_LAYER_URL =  "http://wms.geonorge.no/skwms1/wms.matrikkel.v1?request
 function initializeMap( position )
 {
  	// INITIALIZING THE MAIN MAP:
- 	map = L.map('map').setView(BOE_LATLONG, ZOOMLEVEL);
+ 	map = L.map('map').setView(RINGERRIKE_LATLONG, ZOOMLEVEL);
 
     L.tileLayer('http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=norges_grunnkart&zoom={z}&x={x}&y={y}',
     {
