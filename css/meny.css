@@ -16,7 +16,6 @@
 #menyinnhold {
     width: 50%;
     margin: auto;
-    margin-top: 30px;
 }
 
 #menyinnhold h1 {
@@ -27,23 +26,12 @@
     font-size: 20px;
 }
 
-#menyinnhold .fra {
-    margin-top: -130px;
-    margin-bottom: 10px;
-}
-
-#menyinnhold .til {
-    margin-top: -23px;
-}
-
  .strek {
     width: 5px;
     height: 100px;
     background-color:#FF5722;
     z-index: 1000;
     position: relative;
-    margin-left: -30px;
-    margin-top: 10px;
 }
 
 #circle {
@@ -52,8 +40,6 @@
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
-  margin-left: -35px;
-  margin-top: 0px;
   background: #FF5722;
   position: relative;
 }
@@ -76,7 +62,6 @@
 .lukk {
     font-size: 30px;
     float: right;
-    margin-top: -215px;
 }
 
 .lukk:hover {
@@ -85,21 +70,15 @@
 
 .fratid {
     position: relative;
-    margin-top: -155px;
-    margin-left: -85px;
 }
 
 .tiltid {
     position: relative;
-    margin-top: 90px;
-    margin-left: -85px;
 }
 
 #litenstrek {
   width: 19px;
   height: 5px;
-  margin-left: -37px;
-  margin-top: -123px;
   background: #FF5722;
   position: relative;
   z-index: 9999;
@@ -110,6 +89,35 @@
 @media only screen and (max-width: 600px) {
     #menyinnhold .til {
         margin-top: 78px;
+    }
+    
+    #litenstrek{
+        margin-top: -120px;
+        margin-left: -7%;
+    }
+    
+    #menyinnhold h1 {
+        font-size: 20px;
+        margin-left: -60px;
+        margin-top: -50px;
+    }
+    #menyinnhold h3 {
+        font-size: 16px;
+        margin-left: 2%;
+        margin-top: -3px;
+    }
+    
+    .lukk {
+        font-size: 25px;
+        margin-top: 10px;
+        float: right;
+        margin-right: 15px;
+    }
+    
+    #menyinnhold {
+        width: 75%;
+        margin-left: 25%;
+        margin-top: 30px;
     }
 
     #stedTil {
@@ -125,7 +133,27 @@
         box-shadow: none;
         border-radius: 0;
         margin-top: 0;
-        width: 160px;
         position: relative;
     }
+    
+     .strek {
+        margin-top: 80px;
+        margin-left: -5%;
+    }
+    
+    #circle {
+        margin-left: -6.5%;
+    }
+    
+    .fratid {
+        margin-left: -22%;
+        margin-top: -154px;
+    }
+    
+    .tiltid {
+        margin-left: -22%;
+        margin-top: 90px;
+    }
+    
+    
 }
