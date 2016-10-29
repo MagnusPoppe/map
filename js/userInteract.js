@@ -18,6 +18,12 @@ $(document).ready(function () {
         $("#meny").animate({bottom: "-500"}, 500);
         $(".lukk").removeClass("active");
     });
+
+    map.on("click", function (e) {
+        var pos = [e.latlng.lat, e.latlng.lng];
+        console.log(pos);
+        setBusStops(pos);
+    });
     
 });
 
