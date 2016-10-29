@@ -87,7 +87,7 @@ function placeIcon(icon, lat, lng){
     return v;
 }
 
-function placeHotspotIcon(icon, lat, lng){
+function replaceIcon(icon, lat, lng){
     L.marker([lat, lng], {icon: icon}).addTo(map).on('click', function(){
         $(".leaflet-marker-icon").on('click', function (e) {
 
@@ -105,16 +105,3 @@ function placeHotspotIcon(icon, lat, lng){
     });
 
 }
-
-function replaceIcon(icon){
-
-}
-
-function onClick(e){
-    alert("TEST");
-}
-
-$(document).ready(function test() {
-
-
-});
