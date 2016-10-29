@@ -148,3 +148,7 @@ $(L.icon).click(function(){
 
 //Hotspot på grivi
 placeIcon(INACTIVE_HOTSPOT_ICON, 59.413890, 9.0836602);
+
+
+
+placeIcon( ME_ICON, 59.41334977346592, 9.08371925354004);
