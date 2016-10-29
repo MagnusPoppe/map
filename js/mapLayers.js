@@ -40,6 +40,7 @@ function setRoadLayer()
 
 function placeBusStops( pos )
 {
+
 	var stops = getBusstops( pos[0], pos[1] );
 	for(var i = 0; i < stops.length; i++)
 	{
@@ -53,14 +54,78 @@ function placeBusStops( pos )
 			{
 				selectTo( id );
 				updatePlannerInfoToData( id) ;
+				drawDummyLine();
 			}
-			else plannerInfoFill( id );
+			else
+			{
+				plannerInfoFill( id );
+			}
 
 			$("#meny").animate({bottom: "0"}, 500);
 
 		});
 	}
 }
+
+
+function dummyplaceBusStops( pos )
+{
+
+	var url = "http://apidev.reiseinfo.no/openapi/proxy/location.nearbystops";
+	var bussStops = new Array();
+
+	$.ajax({
+		url: url,
+		method: "get",
+		datatype: "json",
+		async: false,
+		data: {
+			"accessId": "hack4no2016",
+			"format": "json",
+			"originCoordLat": pos[0],
+			"originCoordLong": pos[1],
+			"maxNo"	: 50
+		},
+		success : function (e)
+		{
+			for(var i = 0; i < e.stopLocationOrCoordLocation.length; i++)
+			{
+				bussStops[i] = {
+					"id" 		: e.stopLocationOrCoordLocation[i].StopLocation.extId,
+					"name" 		: e.stopLocationOrCoordLocation[i].StopLocation.name,
+					"latitude"	: e.stopLocationOrCoordLocation[i].StopLocation.lat,
+					"longitude" : e.stopLocationOrCoordLocation[i].StopLocation.lon
+				};
+			}
+		}
+	});
+
+	var stops = bussStops;//getBusstops( pos[0], pos[1] );
+	for(var i = 0; i < stops.length; i++)
+	{
+		var id = stops[i].id;
+		if (id == undefined) continue;
+
+		var icon = placeIcon(BUS_STOP_ICON,  stops[i].latitude, stops[i].longitude );
+		icon.on("click", function(e)
+		{
+			if (selected_from != undefined)
+			{
+				selectTo( id );
+				updatePlannerInfoToData( id) ;
+				drawDummyLine();
+			}
+			else
+			{
+				plannerInfoFill( id );
+			}
+
+			$("#meny").animate({bottom: "0"}, 500);
+
+		});
+	}
+}
+
 
 
 
