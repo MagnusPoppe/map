@@ -45,8 +45,15 @@ function placeBusStops( pos )
 		if (id == undefined) continue;
 
 		var icon = placeIcon(BUS_STOP_ICON,  stops[i].latitude, stops[i].longitude );
-		icon.on("click", function(e) {
-			plannerInfoFill( id );
+		icon.on("click", function(e)
+		{
+			if (selected_from != undefined)
+			{
+				selectTo( id );
+				updatePlannerInfoToData( id) ;
+			}
+			else plannerInfoFill( id );
+
 			$("#meny").animate({bottom: "0"}, 500);
 
 		});

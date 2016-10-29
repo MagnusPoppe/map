@@ -2,8 +2,65 @@
  * Created by MagnusPoppe on 29/10/2016.
  */
 
+// The selected variable holds a selected busstop/hotspot if
+// one is selected. If no stop/hotspot is selected, the variable is undefined.
+    var selected_from;
+    var selected_to;
 
+/**
+ * Selects the from-variable
+ * @param bus_stop_id comes from the NRI API and is the "ExtID" identifier.
+ */
+function selectFrom( bus_stop_id )
+{
+    selected_from = bus_stop_id;
+}
 
+/**
+ * Selects the to-variable
+ * @param bus_stop_id comes from the NRI API and is the "ExtID" identifier.
+ */
+function selectTo( bus_stop_id )
+{
+    selected_to = bus_stop_id;
+}
+
+/**
+ * Deselects the from-variable
+ */
+function deselectFrom( )
+{
+    selected_from = undefined;
+}
+
+/**
+ * Deselects the to-variable
+ */
+function deselectTo( )
+{
+    selected_to = undefined;
+}
+
+/**
+ * Deselects both selected-variables.
+ */
+function deselectAll( )
+{
+    selected_from = undefined;
+    selected_to   = undefined;
+}
+
+/**
+ * Gets busstops based on a selected latlng posision. It uses a
+ * radius of 1000m to search for busstops on. Uses NRIs APIS to
+ * run the search.
+ *
+ * NOTE: NRI tells us that the function is buggy.
+ * @param latitude
+ * @param longitude
+ * @returns {Array} of JSONobjects that contains the following info:
+ *          id, name, latitude, lonitude.
+ */
 function getBusstops( latitude, longitude )
 {
     var url = "http://apidev.reiseinfo.no/openapi/proxy/location.nearbystops";
@@ -37,6 +94,14 @@ function getBusstops( latitude, longitude )
     return bussStops;
 }
 
+/**
+ * Gets departuretimes for a spesific busstop. Uses the NRI travelAPI
+ * for realtime transitinfo.
+ * @param bus_stop_id
+ * @returns {Array} of JSON objects with the following info:
+ *          GeometryRef, JourneyDetailRef, date, direction,
+ *          local, name, stop, stopid, time, type.
+ */
 function getDepartureTimes( bus_stop_id )
 {
     var url = "http://apidev.reiseinfo.no/bin/rest.exe/v1.1/vs_restapi/departureBoard";
@@ -61,6 +126,5 @@ function getDepartureTimes( bus_stop_id )
             departures = e.DepartureBoard.Departure;
         }
     });
-
     return departures;
 }
