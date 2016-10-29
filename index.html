@@ -54,44 +54,20 @@
 
 	<script>
 		initializeMap();
-		goToLocation();
+		//goToLocation();
+
+		// FOR DEMOPURPOSES ONLY!
+		dummyplaceBusStops(BOE_LATLONG);
 
 		function drawDummyLine( )
 		{
-			var speed = 500;
+			var speed = 700;
 
-			for (var i = 0; i < RUTE_1.length; i++)
-				RUTE_1[i] = [RUTE_1[i][1], RUTE_1[i][0]];
-			for (var i = 0; i < RUTE_2.length; i++)
-				RUTE_2[i] = [RUTE_2[i][1], RUTE_2[i][0]];
-			for (var i = 0; i < RUTE_3.length; i++)
-				RUTE_3[i] = [RUTE_3[i][1], RUTE_3[i][0]];
-			for (var i = 0; i < RUTE_4.length; i++)
-				RUTE_4[i] = [RUTE_4[i][1], RUTE_4[i][0]];
-			for (var i = 0; i < RUTE_5.length; i++)
-				RUTE_5[i] = [RUTE_5[i][1], RUTE_5[i][0]];
+			for (var i = 0; i < RUTE.length; i++)
+				RUTE[i] = [RUTE[i][1], RUTE[i][0]];
 
-			setTimeout(function(){
-				var line1 = L.polyline(RUTE_1, {snakingSpeed: speed});
-				line1.addTo(map).snakeIn();
-			}, 0);
-			setTimeout(function(){
-				var line2 = L.polyline(RUTE_2, {snakingSpeed: speed});
-				line2.addTo(map).snakeIn();
-			}, 700);
-			setTimeout(function(){
-				var line3 = L.polyline(RUTE_3, {snakingSpeed: speed});
-				line3.addTo(map).snakeIn();
-			}, 3000);
-			setTimeout(function(){
-				var line4 = L.polyline(RUTE_4, {snakingSpeed: speed});
-				line4.addTo(map).snakeIn();
-			}, 4500);
-			setTimeout(function(){
-				var line5 = L.polyline(RUTE_5, {snakingSpeed: speed});
-				line5.addTo(map).snakeIn();
-			}, 6000);
-
+				var line = L.polyline(RUTE, {snakingSpeed: speed});
+				line.addTo(map).snakeIn();
 		}
 	</script>
 </body>
