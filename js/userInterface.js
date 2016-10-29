@@ -83,11 +83,28 @@ var SETTINGS_ICON = L.icon({
 });
 
 function placeIcon(icon, lat, lng){
-    var v = L.marker([lat, lng], {icon: icon}).addTo(map);
+    var v = L.marker([lat, lng], {icon: icon}).addTo(map).on('click', function(e){
+        $(".leaflet-marker-icon").on('click', function (e) {
+
+                var test = $('.leaflet-marker-icon').prop('src');
+                console.log(test);
+                var path = test.replace("file:///C:/xampp/htdocs/map/", "");
+                console.log(path);
+                if(path == 'Ikoner/inactive_hotspot_icon.png'){
+                    $(this).attr("src", 'Ikoner/active_hotspot_icon.png');
+                }
+                if (path == 'Ikoner/active_hotspot_icon.png'){
+                    $(this).attr("src", 'Ikoner/inactive_hotspot_icon.png');
+                }
+            });
+        });
     return v;
 }
 
-function replaceIcon(icon, lat, lng){
+function replaceHotspotIcon(icon, lat, lng){
+
+}
+/*$document.ready(function(){
     L.marker([lat, lng], {icon: icon}).addTo(map).on('click', function(){
         $(".leaflet-marker-icon").on('click', function (e) {
 
@@ -104,7 +121,26 @@ function replaceIcon(icon, lat, lng){
         });
     });
 
-}
+});*/
+
+
+/*function replaceHotspotIcon(icon, lat, lng){
+    L.marker([lat, lng], {icon: icon}).addTo(map).on('click', function(){
+        $(".leaflet-marker-icon").on('click', function (e) {
+
+            var test = $('.leaflet-marker-icon').prop('src');
+            console.log(test);
+            var path = test.replace("file:///C:/xampp/htdocs/map/", "");
+            console.log(path);
+            if(path == 'Ikoner/inactive_hotspot_icon.png'){
+                $(this).attr("src", 'Ikoner/inactive_hotspot_marked_icon.png');
+            }
+            if (path == 'Ikoner/active_hotspot_icon.png'){
+                $(this).attr("src", 'Ikoner/active_hotspot_marked_icon.png');
+            }
+        });
+    });
+}*/
 
 //Hotspot på grivi
 placeIcon(INACTIVE_HOTSPOT_ICON, 59.413890, 9.0836602);
