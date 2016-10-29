@@ -48,17 +48,11 @@ var SETTINGS_ICON = L.icon({
 });
 
 function placeIcon(icon, lat, lng){
-    var v = L.marker([lat, lng], {icon: icon}).addTo(map);
-    /*
-    v.on('click', function(e){
-        alert("asd");
-    })
-    */
-    return v;
+    L.marker([lat, lng], {icon: icon}).addTo(map);
 }
 
 function replaceIcon(icon){
-    marker.setIcon(SEARCH_ICON);
+
 }
 
 $(document).ready(function () {
@@ -74,6 +68,5 @@ $(document).ready(function () {
         if (path == 'Ikoner/active_hotspot_icon.png'){
             $(this).attr("src", 'Ikoner/inactive_hotspot_icon.png');
         }
-
     });
 });
