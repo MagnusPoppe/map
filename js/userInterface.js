@@ -49,37 +49,37 @@ var SETTINGS_ICON = L.icon({
 
 function placeIcon(icon, lat, lng){
     var v = L.marker([lat, lng], {icon: icon}).addTo(map);
-    /*
-    v.on('click', function(e){
-        alert("asd");
-    })
-    */
     return v;
 }
 
-function replaceIcon(icon){
-    marker.setIcon(SEARCH_ICON);
+function placeHotspotIcon(icon, lat, lng){
+    L.marker([lat, lng], {icon: icon}).addTo(map).on('click', function(){
+        $(".leaflet-marker-icon").on('click', function (e) {
+
+            var test = $('.leaflet-marker-icon').prop('src');
+            console.log(test);
+            var path = test.replace("file:///C:/xampp/htdocs/map/", "");
+            console.log(path);
+            if(path == 'Ikoner/inactive_hotspot_icon.png'){
+                $(this).attr("src", 'Ikoner/active_hotspot_icon.png');
+            }
+            if (path == 'Ikoner/active_hotspot_icon.png'){
+                $(this).attr("src", 'Ikoner/inactive_hotspot_icon.png');
+            }
+        });
+    });
+
 }
 
-$(document).ready(function () {
-    placeIcon(INACTIVE_HOTSPOT_ICON, 60.15722621783532, 10.253033638000488);
+function replaceIcon(icon){
+
+}
+
+function onClick(e){
+    alert("TEST");
+}
+
+$(document).ready(function test() {
 
 
-    $(".leaflet-marker-icon").on('click', function () {
-        var test = $('.leaflet-marker-icon').prop('src');
-        var path = test.replace("file:///C:/xampp/htdocs/map/", "");
-        console.log(path);
-       // var image = $('.leaflet-marker-icon').attr(src);
-        if(path == 'Ikoner/inactive_hotspot_icon.png'){
-            $(this).attr("src", 'Ikoner/active_hotspot_icon.png');
-        }
-
-        if (path == 'Ikoner/active_hotspot_icon.png'){
-            alert("this");
-        }
-
-
-
-
-    })
 });
