@@ -105,3 +105,6 @@ function replaceIcon(icon, lat, lng){
     });
 
 }
+
+//Hotspot på grivi
+placeIcon(INACTIVE_HOTSPOT_ICON, 59.413890, 9.0836602);
