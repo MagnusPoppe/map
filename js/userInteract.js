@@ -35,6 +35,6 @@ function plannerInfoFill( id )
         return;
     }
     $("#menyinnhold h1").html(departure[0].name + " " + departure[0].direction);
-    $("#menyinnhold h3").html(departure[0].stop);
+    $("#menyinnhold .fra").html(departure[0].stop);
     $("#menyinnhold .fratid").html(departure[0].time);
 }
