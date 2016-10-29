@@ -104,3 +104,27 @@
   position: relative;
   z-index: 9999;
 }
+
+
+
+@media only screen and (max-width: 600px) {
+    #menyinnhold .til {
+        margin-top: 78px;
+    }
+    
+    .lukk {
+        margin-top: -320px;
+    }
+    
+    .fratid {
+        margin-top: -273px;
+    }
+    
+    .tiltid {
+        margin-top: 85px;
+    }
+    
+    #litenstrek {
+        margin-top: -117px;
+    }
+}
