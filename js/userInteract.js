@@ -10,13 +10,6 @@ $(document).ready(function () {
         });
     });
 
-    map.on('click', function (e) {
-        var pos = [e.latlng.lat, e.latlng.lng];
-
-        //finnAdresse(pos, "stedFra");
-        $("#meny").animate({bottom: "0"}, 500);
-    });
-
     $("#menyClose").on('click', function() {
 
     });
@@ -33,4 +26,5 @@ function plannerInfoFill( id )
     var departure = getDepartureTimes(id);
     $("#menyinnhold h1").html(departure[0].name + " " + departure[0].direction);
     $("#menyinnhold h3").html(departure[0].stop);
+    $("#menyinnhold .fratid").html(departure[0].time);
 }

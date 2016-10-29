@@ -48,10 +48,13 @@ var SETTINGS_ICON = L.icon({
 });
 
 function placeIcon(icon, lat, lng){
-    var v = L.marker([lat, lng], {icon: icon}).addTo(map)
-    /*v.on('click', function(e){
+    var v = L.marker([lat, lng], {icon: icon}).addTo(map);
+    /*
+    v.on('click', function(e){
         alert("asd");
-    })*/
+    })
+    */
+    return v;
 }
 
 function replaceIcon(icon){

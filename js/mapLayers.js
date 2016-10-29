@@ -67,9 +67,18 @@ function getDepartureTimes( bus_stop_id )
 function setBusStops( pos )
 {
 	var stops = getBusstops( pos[0], pos[1] );
-
+	console.log(stops[0]);
 	for(var i = 0; i < stops.length; i++)
-		var test = placeIcon(ACTIVE_HOTSPOT_ICON,  stops[i].latitude, stops[i].longitude );
+	{
+		var icon = placeIcon(ACTIVE_HOTSPOT_ICON,  stops[i].latitude, stops[i].longitude );
+		var id = stops[i].id;
+
+		icon.on("click", function(e) {
+			plannerInfoFill( id );
+			$("#meny").animate({bottom: "0"}, 500);
+
+		});
+	}
 }
 
 function getBusstops( latitude, longitude )
