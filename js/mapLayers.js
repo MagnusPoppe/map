@@ -67,6 +67,62 @@ function placeBusStops( pos )
 	}
 }
 
+function dummyplaceHotspots( )
+{
+	var dummyhotspots = [
+		{
+			name : "Bøbussen",
+			direction: "mot Seljord",
+			time: "14:03",
+			stop : "Grivi studenthjem",
+			lat :  59.41386021137103,
+			lng :  9.083515405654909
+		},
+
+	];
+
+	var icon1 = placeIcon(ACTIVE_HOTSPOT_ICON,  59.41205590174323, 9.06050205230713 );
+
+	icon1.on("click", function( )
+	{
+		selectFrom( 1 );
+		// Placing data into the DOM:
+		$("#menyinnhold h1").html("Bøbussen" + " " + "mot Seljord");
+		$("#menyinnhold .fra").html("Gullbring Studenthjem");
+		$("#menyinnhold .fratid").html("14:15");
+		$("#meny").animate({bottom: "0"}, 500);
+
+	});
+	var icon2 = placeIcon(ACTIVE_HOTSPOT_ICON,  59.41107864096727,9.069557189941408 );
+
+	icon2.on("click", function( )
+	{
+		selectFrom( 1 );
+
+		// Placing data into the DOM:
+		$("#menyinnhold h1").html("Bøbussen" + " " + "mot Seljord");
+		$("#menyinnhold .fra").html("Bøsenteret");
+		$("#menyinnhold .fratid").html("14:03");
+		$("#meny").animate({bottom: "0"}, 500);
+
+	});
+	var icon3 = placeIcon(ACTIVE_HOTSPOT_ICON,  59.41386021137103, 9.083515405654909 );
+
+	icon3.on("click", function( )
+	{
+		selectFrom( 1 );
+
+		// Placing data into the DOM:
+		$("#menyinnhold h1").html("Bøbussen" + " " + "mot Seljord");
+		$("#menyinnhold .fra").html("Grivi studenthjem");
+		$("#menyinnhold .fratid").html("14:03");
+		$("#meny").animate({bottom: "0"}, 500);
+
+	});
+
+}
+
+
 
 function dummyplaceBusStops( pos )
 {

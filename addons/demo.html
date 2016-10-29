@@ -23,7 +23,9 @@
 			latlngs.push(new L.LatLng(route[i][0], route[i][1]));
 		}
 
-		var path = L.polyline(latlngs);
+		var path = L.polyline(latlngs , {
+            color: "red"
+        });
 
 		var map = L.map('map');
 
