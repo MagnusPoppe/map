@@ -142,5 +142,13 @@ function replaceHotspotIcon(icon, lat, lng){
     });
 }*/
 
+$(L.icon).click(function(){
+    $(L.icon).fadeTo(1000, 0.4);
+});
+
 //Hotspot på grivi
 placeIcon(INACTIVE_HOTSPOT_ICON, 59.413890, 9.0836602);
+
+
+
+placeIcon( ME_ICON, 59.41334977346592, 9.08371925354004);
