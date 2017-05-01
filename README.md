@@ -14,7 +14,7 @@ Dette prosjektet kom frem som en del av 6106 prosjektstyring ved Høgskolen i S�
 - [Sigurd Sæther Sørensen](https://www.linkedin.com/in/sigurdsorensen/ "Linkedin profile")
 - [Thomas Vincent Saly](https://www.linkedin.com/in/thomas-vincent-saly-738844a7/ "Linkedin profile")
 
-### Presentation given at #hack4no
+### Presentasjonen gitt under #hack4no
 ![alt text](http://byteme.no/image/buber/Slide1.png)
 ![alt text](http://byteme.no/image/buber/Slide2.png)
 ![alt text](http://byteme.no/image/buber/Slide3.png)
